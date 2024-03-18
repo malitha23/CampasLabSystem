@@ -44,17 +44,41 @@ export class RegisterpageComponent {
     this.user.role = 'user';
     this.authService.register(this.user).subscribe(
       (response) => {
-        setTimeout(() => {
+        if(response.statusCode == 200){
+          const token = response.user.token;
           this.messageshow = true;
           this.message = 'Registration successful';
-          this.isLoading = false;
-          console.log('Registration successful:', response);
-        }, 3000);
+          setTimeout(() => {
+            this.messageshow = false;
+            this.message = '';
+            this.isLoading = false;
+            console.log('Registration successful:', response);
+            localStorage.setItem('token', token);
+          
+            if(response.user.role == 'user'){
+              window.location.href = '/userhomepage';
+            }else{
+              
+            }
+          }, 3000);
+        }else{
+          this.messageshow = true;
+          this.message = 'Registration not successful';
+          setTimeout(() => {
+            this.messageshow = false;
+            this.message = '';
+            this.isLoading = false;
+            console.log('Registration not successful:', response);
+          }, 3000);
+        }
+       
       },
       (error) => {
+        this.messageshow = true;
+        this.message = 'Registration failed';
         setTimeout(() => {
-          this.messageshow = true;
-          this.message = 'Registration failed';
+          this.messageshow = false;
+          this.message = '';
           this.isLoading = false;
           console.log('Registration failed:', error);
         }, 3000);

@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginpageComponent } from './loginpage/loginpage.component'; 
 import { RegisterpageComponent } from './registerpage/registerpage.component'; 
+import { UserhomepageComponent } from './homepages/userhomepage/userhomepage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login page by default
   { path: 'login', component: LoginpageComponent },
   { path: 'register', component: RegisterpageComponent },
+  { path: 'userhomepage', component: UserhomepageComponent },
   // Define other routes here
 ];
 

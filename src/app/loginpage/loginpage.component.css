@@ -50,3 +50,38 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Styles for the alert box */
+.alert {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 400px;
+  max-width: calc(100% - 40px);
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.alert-dismissible {
+  padding-right: 35px;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  color: #3c763d;
+}
+
+/* Close button for the alert */
+.alert-dismissible .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
