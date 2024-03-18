@@ -7,20 +7,26 @@ import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterpageComponent } from './registerpage/registerpage.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserhomepageComponent } from './homepages/userhomepage/userhomepage.component'; 
+import { UserhomepageComponent } from './homepages/userhomepage/userhomepage.component';
+import { AppointmentformComponent } from './items/appointmentform/appointmentform.component'; 
+import { ToastModule } from 'primeng/toast';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginpageComponent,
     RegisterpageComponent,
-    UserhomepageComponent
+    UserhomepageComponent,
+    AppointmentformComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, // Add FormsModule here
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule,
+    TabViewModule
   ],
   providers: [
     provideClientHydration()
